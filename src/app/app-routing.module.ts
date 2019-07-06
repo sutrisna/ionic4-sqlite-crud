@@ -4,6 +4,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'local-notif', loadChildren: './local-notif/local-notif.module#LocalNotifPageModule' },
+  { path: 'detail/:data', loadChildren: './detail/detail.module#DetailPageModule' },
 ];
 
 @NgModule({

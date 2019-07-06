@@ -1,14 +1,73 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      SQLITE CRUD
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="stacked">NIS</ion-label>
+      <ion-input type="number" [(ngModel)]="nis"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nama</ion-label>
+      <ion-input type="text" [(ngModel)]="nama"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Telepon</ion-label>
+      <ion-input type="text" [(ngModel)]="tlp"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nilai</ion-label>
+      <ion-input type="number" [(ngModel)]="nilai"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="primary" (click)="inputData()">Simpan data</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" color="success" (click)="ambilData()">Ambil data</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="danger" (click)="hapusDb()">Hapus Database</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let data of dataSiswa">
+      <ion-row>
+        <ion-col>
+          <p style="font-size:8pt;">
+            NIS : {{data.nis}}<br>
+            NAMA : {{data.nama}}<br>
+            TELEPON : {{data.tlp}}<br>
+            NILAI : {{data.nilai}}<br>
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="primary" (click)="updateUser(data.nis)">Update User</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" color="danger" (click)="hapusUser(data.nis)">Hapus User</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <ion-button expand="block" color="primary" (click)="pindah()">Jumlah nilai</ion-button>
   </div>
+
 </ion-content>
